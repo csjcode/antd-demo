@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import './App.css';
-import { Layout, Menu, Breadcrumb, Button, Card } from 'antd';
+import CheckboxAction from './CheckboxAction'
+import { Layout, Menu, Breadcrumb, Button, Card, Checkbox } from 'antd';
+const CheckboxGroup = Checkbox.Group;
 const { Meta } = Card;
 const { Header, Content, Footer } = Layout;
 
-export default class componentName extends Component {
+export default class App extends Component {
   static propTypes = {
 
   }
@@ -23,7 +25,7 @@ export default class componentName extends Component {
           hoverable 
           cover={<img alt="example" src="http://via.placeholder.com/300x150"/>}
           title={myData[i].title} 
-          extra={<a href="#">More</a>} 
+          extra={<CheckboxAction/>}
           style={{ display:'inline-block', margin:10, width: 300,  }}
         >
         <p>{myData[i].title} has {myData[i].numPat}+ patent PDFs with images in lcuded in the PDF and also separate XML data files to import into other apps.</p>
