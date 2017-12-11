@@ -17,7 +17,7 @@ export default class CheckboxAction extends Component {
   render(){
       return(
          <div>
-           ADD <Checkbox style={{marginLeft:15}}/>
+           +ADD <Checkbox style={{marginLeft:3}}/>
          </div>
       )
   }

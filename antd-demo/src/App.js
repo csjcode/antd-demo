@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import './App.css';
+import CardImgTag from './CardImgTag'
 import CheckboxAction from './CheckboxAction'
 import { Layout, Menu, Breadcrumb, Button, Card, Checkbox } from 'antd';
 const CheckboxGroup = Checkbox.Group;
@@ -23,11 +24,12 @@ export default class App extends Component {
 
         <Card
           hoverable 
-          cover={<img alt="example" src="http://via.placeholder.com/300x150"/>}
+          cover={<CardImgTag myImg={myData[i].imgUrl}/>}
           title={myData[i].title} 
           extra={<CheckboxAction/>}
           style={{ display:'inline-block', margin:10, width: 300,  }}
         >
+        
         <p>{myData[i].title} has {myData[i].numPat}+ patent PDFs with images in lcuded in the PDF and also separate XML data files to import into other apps.</p>
         <p>{myData[i].imgUrl}</p>
         <Meta
@@ -46,64 +48,59 @@ export default class App extends Component {
 
     var myData = [
       {
-        'title':'Apple',
-        'numPat':1200,
-        'imgUrl':'Apple.png'
-      },
-      {
-        'title':'Google',
+        'title':'3D Print',
         'numPat':1000,
-        'imgUrl':'Google.png'
+        'imgUrl':'3d-Print'
       },
       {
-        'title':'Virtual Reality',
-        'numPat':900,
-        'imgUrl':'Virtual-Reality.png'
-      },
-      {
-        'title':'Eyeglasses',
-        'numPat':600,
-        'imgUrl':'Eyeglasses.png'
-      },
-      {
-        'title':'Eyeglasses',
-        'numPat':1000,
-        'imgUrl':'Eyeglasses.png'
-      },
-      {
-        'title':'Mobile Phones',
-        'numPat':1200,
-        'imgUrl':'Mobile-Phones.png'
-      },
-      {
-        'title':'Apple',
-        'numPat':1000,
-        'imgUrl':'Apple.png'
-      },
-      {
-        'title':'Google',
-        'numPat':1000,
-        'imgUrl':'Google.png'
-      },
-      {
-        'title':'Virtual Reality',
-        'numPat':1100,
-        'imgUrl':'Virtual-Reality.png'
-      },
-      {
-        'title':'Eyeglasses',
-        'numPat':1000,
-        'imgUrl':'Eyeglasses.png'
-      },
-      {
-        'title':'Eyeglasses',
+        'title':'Alibaba',
         'numPat':1600,
-        'imgUrl':'Eyeglasses.png'
+        'imgUrl':'Alibaba'
       },
       {
-        'title':'Mobile Phones',
+        'title':'Augmented Reality',
         'numPat':1000,
-        'imgUrl':'Mobile-Phones.png'
+        'imgUrl':'Augmented-Reality'
+      },
+      {
+        'title':'Boeing',
+        'numPat':1000,
+        'imgUrl':'Boeing'
+      },
+      {
+        'title':'Brain',
+        'numPat':1000,
+        'imgUrl':'Brain'
+      },
+      {
+        'title':'Eyeglasses',
+        'numPat':1000,
+        'imgUrl':'Eyeglasses'
+      },
+      {
+        'title':'Fitness',
+        'numPat':1000,
+        'imgUrl':'Fitness'
+      },
+      {
+        'title':'Graphene',
+        'numPat':600,
+        'imgUrl':'Graphene'
+      },
+      {
+        'title':'Machine Learning',
+        'numPat':900,
+        'imgUrl':'Machine-Learning'
+      },
+      {
+        'title':'Nike',
+        'numPat':1600,
+        'imgUrl':'Nike'
+      },
+      {
+        'title':'Unmanned Aerial Vehicle',
+        'numPat':1200,
+        'imgUrl':'Unmanned-Aerial-Vehicle'
       }
     ];
 
