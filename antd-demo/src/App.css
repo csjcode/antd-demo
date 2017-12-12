@@ -59,6 +59,10 @@ Button.anttest {
   border: 1px solid #8d8d8d
 }
 
+.ant-card-selected {
+  border: 1px solid #1890ff
+}
+
 
 .ant-card-head-title {
   font-size:18px;

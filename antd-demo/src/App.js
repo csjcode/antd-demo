@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import myData from './data/myData'
 import CardImgTag from './CardImgTag'
 import CheckboxAction from './CheckboxAction'
 import { Layout, Menu, Breadcrumb, Card } from 'antd';
@@ -8,29 +9,49 @@ const { Header, Content, Footer } = Layout;
 
 export default class App extends Component {
 
-  
   constructor(props) {
     super(props);
-    this.handleCardAdd = this.handleCardAdd.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
+    this.toggleSaved = this.toggleSaved.bind(this);
+    this.state = {
+      selected: false,
+      save:[2]
+    }
+  }
+
+  toggleSaved(x,i){
+    if(this.state.save.includes(i)){
+      
+      this.setState({
+        save: this.state.save.filter((_, ind) => ind !== i)
+      });
+      console.log(`removed ${i}`);
+    } else {
+      console.log(`added ${i}`);
+      this.setState({ 
+        save: [...this.state.save, i] 
+      }); 
+    }
+    
     
   }
 
-  handleCardAdd(i){
-    // alert('added');
-    console.log('added ' + i);
+  handleCheckbox(x,i){
+
+    return this.toggleSaved(x,i);
   }
   
   renderCards(myData){
     return myData.map((x,i)=>{
       return (
-
         <Card
-          onClick={() => this.handleCardAdd(x.title)}
+          key={i}
+          onClick={() => this.handleCheckbox(x.title,i)}
           hoverable 
           cover={<CardImgTag myImg={myData[i].imgUrl}/>}
           title={myData[i].title} 
           extra={<CheckboxAction/>}
-          style={{ display:'inline-block', margin:10, width: 300,  }}
+          style={{ display:'inline-block', margin:10, width: 300 }}
         >
         
         <p>{myData[i].title} has {myData[i].numPat}+ patent PDFs with images in included in the PDF and also separate XML data files to import into other apps.</p>
@@ -44,68 +65,9 @@ export default class App extends Component {
       )
     })
 
-    // alert(myData[1].title);
   }
 
   render() {
-
-    var myData = [
-      {
-        'title':'3D Print',
-        'numPat':1000,
-        'imgUrl':'3d-Print'
-      },
-      {
-        'title':'Alibaba',
-        'numPat':1600,
-        'imgUrl':'Alibaba'
-      },
-      {
-        'title':'Augmented Reality',
-        'numPat':1000,
-        'imgUrl':'Augmented-Reality'
-      },
-      {
-        'title':'Boeing',
-        'numPat':1000,
-        'imgUrl':'Boeing'
-      },
-      {
-        'title':'Brain',
-        'numPat':1000,
-        'imgUrl':'Brain'
-      },
-      {
-        'title':'Eyeglasses',
-        'numPat':1000,
-        'imgUrl':'Eyeglasses'
-      },
-      {
-        'title':'Fitness',
-        'numPat':1000,
-        'imgUrl':'Fitness'
-      },
-      {
-        'title':'Graphene',
-        'numPat':600,
-        'imgUrl':'Graphene'
-      },
-      {
-        'title':'Machine Learning',
-        'numPat':900,
-        'imgUrl':'Machine-Learning'
-      },
-      {
-        'title':'Nike',
-        'numPat':1600,
-        'imgUrl':'Nike'
-      },
-      {
-        'title':'Unmanned Aerial Vehicle',
-        'numPat':1200,
-        'imgUrl':'Unmanned-Aerial-Vehicle'
-      }
-    ];
 
     return (
       <Layout className="layout" style={{padding:0, margin: 0, backgroundColor:'#fff'}}>
