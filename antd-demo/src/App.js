@@ -15,7 +15,7 @@ export default class App extends Component {
     this.toggleSaved = this.toggleSaved.bind(this);
     this.state = {
       selected: false,
-      save:[2]
+      save:[]
     }
   }
 
@@ -27,10 +27,10 @@ export default class App extends Component {
       });
       console.log(`removed ${i}`);
     } else {
-      console.log(`added ${i}`);
       this.setState({ 
         save: [...this.state.save, i] 
       }); 
+      console.log(`added ${i}`);
     }
     
     
@@ -96,7 +96,7 @@ export default class App extends Component {
               {this.renderCards(myData)}
             </div>
             
-            
+            {console.log(JSON.stringify(this.state))}
 
             <div>
 
