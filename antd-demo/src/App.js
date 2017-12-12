@@ -19,25 +19,23 @@ export default class App extends Component {
     }
   }
 
-  toggleSaved(x,i){
-    if(this.state.save.includes(i)){
-      
-      this.setState({
-        save: this.state.save.filter((_, ind) => ind !== i)
-      });
-      console.log(`removed ${i}`);
+  toggleSaved(x,id){
+    if(this.state.save.includes(id)){
+      this.setState((prevState) => ({
+        save: prevState.save.filter(i => i !== id)
+      }))
+      console.log(`removed ${id}`);
     } else {
       this.setState({ 
-        save: [...this.state.save, i] 
+        save: [...this.state.save, id] 
       }); 
-      console.log(`added ${i}`);
+      console.log(`added ${id}`);
     }
     
     
   }
 
   handleCheckbox(x,i){
-
     return this.toggleSaved(x,i);
   }
   
