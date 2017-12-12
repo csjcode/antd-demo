@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 import './App.css';
 import CardImgTag from './CardImgTag'
 import CheckboxAction from './CheckboxAction'
-import { Layout, Menu, Breadcrumb, Button, Card, Checkbox } from 'antd';
-const CheckboxGroup = Checkbox.Group;
+import { Layout, Menu, Breadcrumb, Card } from 'antd';
 const { Meta } = Card;
 const { Header, Content, Footer } = Layout;
 
 export default class App extends Component {
-  static propTypes = {
 
-  }
   
   constructor(props) {
-    super(props)
+    super(props);
+    this.handleCardAdd = this.handleCardAdd.bind(this);
     
+  }
+
+  handleCardAdd(i){
+    // alert('added');
+    console.log('added ' + i);
   }
   
   renderCards(myData){
@@ -23,6 +25,7 @@ export default class App extends Component {
       return (
 
         <Card
+          onClick={() => this.handleCardAdd(x.title)}
           hoverable 
           cover={<CardImgTag myImg={myData[i].imgUrl}/>}
           title={myData[i].title} 
@@ -30,7 +33,7 @@ export default class App extends Component {
           style={{ display:'inline-block', margin:10, width: 300,  }}
         >
         
-        <p>{myData[i].title} has {myData[i].numPat}+ patent PDFs with images in lcuded in the PDF and also separate XML data files to import into other apps.</p>
+        <p>{myData[i].title} has {myData[i].numPat}+ patent PDFs with images in included in the PDF and also separate XML data files to import into other apps.</p>
         <p>{myData[i].imgUrl}</p>
         <Meta
           title={myData[i].title}
@@ -105,11 +108,11 @@ export default class App extends Component {
     ];
 
     return (
-      <Layout className="layout">
-        <Header>
-          <div className="logo" />
+      <Layout className="layout" style={{padding:0, margin: 0, backgroundColor:'#fff'}}>
+        <Header style={{padding:0, margin: 0}}>
+        <div className="logo"/>
           <Menu
-            theme="dark"
+            theme="light"
             mode="horizontal"
             defaultSelectedKeys={['2']}
             style={{ lineHeight: '64px' }}
@@ -121,9 +124,9 @@ export default class App extends Component {
         </Header>
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
+            <Breadcrumb.Item>FreshPatents.com</Breadcrumb.Item>
+            <Breadcrumb.Item>Deals</Breadcrumb.Item>
+            <Breadcrumb.Item>End-of-Year Patent Pack Special</Breadcrumb.Item>
           </Breadcrumb>
           <div style={{ background: '#fff', padding: 24, minHeight: 280, marginBottom:20 }}>
 
