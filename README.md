@@ -5,6 +5,9 @@ Ant Design library demo
 
 * Experimenting with some different designs of the Ant  Design framework.
 
+* This currently shows a Freshpatents pitch page with a grid of Cards and saves clicked cards to an array in State.
+
+* I have added the Storybook library to track component.
 
 * `yarn add antd`
 * `cd antd-demo/`
